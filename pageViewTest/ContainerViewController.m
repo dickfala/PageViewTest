@@ -3,19 +3,18 @@
 //  pageViewTest
 //
 //  Created by James on 2015/1/30.
-//  Copyright (c) 2015年 coretronic. All rights reserved.
 //
 
-#import "IntroPagesViewController.h"
+#import "ContainerViewController.h"
 
-@interface IntroPagesViewController ()
+@interface ContainerViewController ()
 {
     NSArray *myViewControllers;
     UIPageControl *pageControl;
 }
 @end
 
-@implementation IntroPagesViewController
+@implementation ContainerViewController
 
 
 - (void)viewDidLoad {

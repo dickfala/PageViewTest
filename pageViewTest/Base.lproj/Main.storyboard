@@ -7,7 +7,7 @@
         <!--Root View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Root View Controller" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Root View Controller" customClass="ParentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7C0-AH-Pg3"/>
                         <viewControllerLayoutGuide type="bottom" id="aZb-TG-TiA"/>
@@ -19,7 +19,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kZc-Eq-Gxj">
                                 <rect key="frame" x="0.0" y="-5" width="320" height="441"/>
                                 <connections>
-                                    <segue destination="9aU-Y5-sqf" kind="embed" id="7Po-rC-esY"/>
+                                    <segue destination="9aU-Y5-sqf" kind="embed" identifier="embedSegue" id="7Po-rC-esY"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBW-nV-jyo">
@@ -42,7 +42,7 @@
         <!--First View Controller-->
         <scene sceneID="nm3-D0-Hu7">
             <objects>
-                <viewController storyboardIdentifier="PowerPage" id="NVk-R6-Pfx" userLabel="First View Controller" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PowerPage" id="NVk-R6-Pfx" userLabel="First View Controller" customClass="FirstViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SGr-tX-vpL"/>
                         <viewControllerLayoutGuide type="bottom" id="EhP-lw-zEM"/>
@@ -57,13 +57,22 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTe-Rr-vty">
+                                <rect key="frame" x="34" y="70" width="252" height="30"/>
+                                <state key="normal" title="send arguments change Root VW bg">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendArgBtnAction:" destination="NVk-R6-Pfx" eventType="touchUpInside" id="ZJS-gQ-C5b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.78431379800000001" green="0.9450981021" blue="0.7254902124" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kUf-9I-Sti" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366" y="1079"/>
+            <point key="canvasLocation" x="1095" y="520"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="uLv-aC-6yx">
@@ -89,15 +98,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUY-Ea-JZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712" y="1079"/>
+            <point key="canvasLocation" x="726" y="1014"/>
         </scene>
-        <!--Intro Pages View Controller-->
+        <!--Container View Controller-->
         <scene sceneID="NFy-1l-yZt">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="9aU-Y5-sqf" customClass="IntroPagesViewController" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="9aU-Y5-sqf" customClass="ContainerViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWq-Gu-l0S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="831" y="459"/>
+            <point key="canvasLocation" x="742" y="449.5"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
