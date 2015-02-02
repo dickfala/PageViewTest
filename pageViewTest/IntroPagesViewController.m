@@ -28,14 +28,14 @@
     pageControl.backgroundColor = [UIColor clearColor];
     
     UIViewController *powerVC = [self.storyboard
-                            instantiateViewControllerWithIdentifier:@"PowerPage"];
+                                 instantiateViewControllerWithIdentifier:@"PowerPage"];
     
-
+    
     UIViewController *MainVC = [self.storyboard
-                            instantiateViewControllerWithIdentifier:@"MainControlPage"];
-
+                                instantiateViewControllerWithIdentifier:@"MainControlPage"];
+    
     myViewControllers = @[powerVC,MainVC];
-   
+    
     [self setViewControllers:@[powerVC]
                    direction:UIPageViewControllerNavigationDirectionForward
                     animated:NO completion:nil];
@@ -55,18 +55,22 @@
 -(UIViewController *)viewControllerAtIndex:(NSUInteger)index
 {
     
-
+    
     return myViewControllers[index];
 }
 
 
 -(UIViewController*) pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
-    NSUInteger currentIndex = [myViewControllers indexOfObject:viewController];
     
+    NSUInteger currentIndex = [myViewControllers indexOfObject:viewController];
+    if( currentIndex == 0 )
+    {
+        return nil;
+    }
     NSLog(@"before currentIndex:%ld",currentIndex);
-    --currentIndex;
-    currentIndex = currentIndex % (myViewControllers.count);
+    currentIndex--;
+
     return [myViewControllers objectAtIndex:currentIndex];
 }
 
@@ -75,17 +79,21 @@
 {
     NSUInteger currentIndex = [myViewControllers indexOfObject:viewController];
     
-        NSLog(@"before currentIndex:%ld",currentIndex);
-    
-    ++currentIndex;
-    currentIndex = currentIndex % (myViewControllers.count);
+    NSLog(@"after currentIndex:%ld",currentIndex);
+    currentIndex++;
+
+    if( currentIndex == [myViewControllers count])
+    {
+        return nil;
+    }
+
     return [myViewControllers objectAtIndex:currentIndex];
 }
 
 
 -(NSInteger)presentationCountForPageViewController:
 (UIPageViewController *)pageViewController
-{    
+{
     return myViewControllers.count;
 }
 
@@ -97,13 +105,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
